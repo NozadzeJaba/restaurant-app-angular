@@ -37,3 +37,63 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* n8n Chat Widget Styles - Ensure it's always on top and accessible */
+[data-n8n-chat],
+iframe[src*="n8n"],
+iframe[src*="chat"],
+div[data-n8n-chat],
+#n8n-chat-widget,
+.n8n-chat-widget {
+  z-index: 99999 !important;
+  position: fixed !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure chat widget container and all child elements are accessible */
+[data-n8n-chat] *,
+iframe[src*="n8n"] *,
+iframe[src*="chat"] *,
+div[data-n8n-chat] *,
+#n8n-chat-widget *,
+.n8n-chat-widget * {
+  pointer-events: auto !important;
+}
+
+/* Target any div positioned at bottom-right (typical chat widget position) */
+body > div[style*="position: fixed"][style*="bottom"],
+body > div[style*="position:fixed"][style*="bottom"],
+body > div[style*="position: fixed"][style*="right"],
+body > div[style*="position:fixed"][style*="right"] {
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}
+
+body > div[style*="position: fixed"][style*="bottom"] > *,
+body > div[style*="position:fixed"][style*="bottom"] > *,
+body > div[style*="position: fixed"][style*="right"] > *,
+body > div[style*="position:fixed"][style*="right"] > * {
+  pointer-events: auto !important;
+}
+
+/* Ensure inputs and textareas in chat widget are clickable */
+[data-n8n-chat] input,
+[data-n8n-chat] textarea,
+[data-n8n-chat] button,
+[data-n8n-chat] [contenteditable],
+iframe[src*="n8n"] input,
+iframe[src*="n8n"] textarea,
+iframe[src*="n8n"] button,
+iframe[src*="chat"] input,
+iframe[src*="chat"] textarea,
+iframe[src*="chat"] button {
+  pointer-events: auto !important;
+  z-index: 99999 !important;
+  position: relative !important;
+}
+
+/* Ensure app-root doesn't block the chat widget */
+app-root {
+  position: relative;
+  z-index: 1;
+}
