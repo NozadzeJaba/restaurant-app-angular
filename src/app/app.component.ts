@@ -22,7 +22,7 @@ export class AppComponent implements AfterViewInit {
       import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
       const chatInstance = createChat({
-        webhookUrl: 'https://jabasn8n.app.n8n.cloud/webhook-test/141e24ae-8cef-4ec0-a50d-90fba7a3b0ff'
+        webhookUrl: 'https://jabasn8n.app.n8n.cloud/webhook/chatbot-webhook'
       });
 
       // Use MutationObserver to watch for chat widget insertion
